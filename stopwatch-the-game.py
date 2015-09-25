@@ -45,3 +45,34 @@ Grading Rubric - 13 pts total (scaled to 100 pts)
 2 pts - The "Stop" button correctly updates these success/attempts numbers. Give only one point if hitting the "Stop" button changes these numbers when the timer is already stopped.
 1 pt - The "Reset" button clears the success/attempts numbers.
 '''
+
+
+# template for "Stopwatch: The Game"
+
+# define global variables
+
+
+# define helper function format that converts time
+# in tenths of seconds into formatted string A:BC.D
+def format(t):
+    pass
+
+# define event handlers for buttons; "Start", "Stop", "Reset"
+
+
+# define event handler for timer with 0.1 sec interval
+
+
+# define draw handler
+
+
+# create frame
+
+
+# register event handlers
+
+
+# start frame
+
+
+# Please remember to review the grading rubric
