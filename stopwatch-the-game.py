@@ -83,13 +83,15 @@ def timer__handler():
 
 
 # create frame
-
+frame = simplegui.create_frame("Stopwatch: The Game", 500, 400)
 
 
 # register event handlers
 timer = simplegui.create_timer(100, timer__handler)
 
+
 # start frame
+frame.start()
 
 #start timer
 timer.start()
