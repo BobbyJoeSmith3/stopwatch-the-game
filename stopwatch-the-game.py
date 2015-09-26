@@ -79,7 +79,8 @@ def timer__handler():
 
 
 # define draw handler
-
+def draw(canvas):
+    canvas.draw_text(str(timer__interval), [100, 100], 24, "White")
 
 
 # create frame
@@ -88,7 +89,7 @@ frame = simplegui.create_frame("Stopwatch: The Game", 500, 400)
 
 # register event handlers
 timer = simplegui.create_timer(100, timer__handler)
-
+frame.set_draw_handler(draw)
 
 # start frame
 frame.start()
