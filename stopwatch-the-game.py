@@ -48,8 +48,14 @@ Grading Rubric - 13 pts total (scaled to 100 pts)
 
 
 # template for "Stopwatch: The Game"
+# imports
+import simplegui
+
+
 
 # define global variables
+timer__interval = 0
+
 
 
 # define helper function format that converts time
@@ -57,22 +63,37 @@ Grading Rubric - 13 pts total (scaled to 100 pts)
 def format(t):
     pass
 
+
+
 # define event handlers for buttons; "Start", "Stop", "Reset"
+#Start button
+
+#Stop button
+
+#Reset button
+
 
 
 # define event handler for timer with 0.1 sec interval
+def timer__handler():
 
 
 # define draw handler
 
 
+
 # create frame
 
 
-# register event handlers
 
+# register event handlers
+timer = simplegui.create_timer(100, timer__handler)
 
 # start frame
+
+#start timer
+timer.start()
+
 
 
 # Please remember to review the grading rubric
