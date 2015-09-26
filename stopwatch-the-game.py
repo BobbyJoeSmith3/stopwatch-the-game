@@ -48,74 +48,104 @@ Grading Rubric - 13 pts total (scaled to 100 pts)
 
 
 # template for "Stopwatch: The Game"
-# imports
+###########################################\
+    # IMPORTS
+###########################################/
+
 import simplegui
 
 
 
-# define global variables
-timer__interval = 100
-time = 0
-time__formatted
+###########################################\
+    # GLOBAL VARIABLES
+###########################################/
 
+# Define global variables
+timer__interval = 100
+current_time = 0
+
+# Minutes
+A = 0
+# Seconds
+B = 0
+C = 0
+# Tenths of a second
+D = 0
+
+time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
+
+
+
+###########################################\
+    # HELPER FUNCTIONS
+###########################################/
 
 '''
-# define helper function format that converts time
+# Define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
 # where A, C and D are digits in the range 0-9
 # and B is in the range 0-5.
 '''
 def format(t):
-    #global time__formatted
-    #t = time
+    #global time__formatted, A, B, C, D
+    #t = current_time
     #D = t / 100
     #C = t / 1000
     #return time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
 
 
 
-# define event handlers for buttons; "Start", "Stop", "Reset"
-#Start button - starts the timer
+###########################################\
+    # EVENT HANDLERS
+###########################################/
+
+# Define event handlers for buttons; "Start", "Stop", "Reset"
+# Start button - starts the timer
 def timer__start():
     timer.start()
 
-#Stop button - stops the timer
+# Stop button - stops the timer
 def timer__stop():
     timer.stop()
 
-#Reset button - stops the timer if running, and resets timer to zero
+# Reset button - stops the timer if running, and resets timer to zero
 def timer__reset():
     global time
     timer.stop()
     time = 0
 
-# define event handler for timer with 0.1 sec interval
+# Define event handler for timer with 0.1 sec interval
 def timer__handler():
 
 
-# define draw handler
+# Define draw handler
 def draw(canvas):
     canvas.draw_text(str(time__formatted), [100, 100], 24, "White")
 
 
-# create frame
+
+###########################################\
+    # USER INTERFACE
+###########################################/
+
+# Create frame
 frame = simplegui.create_frame("Stopwatch: The Game", 500, 400)
 
 
-# register event handlers
+# Register event handlers
 timer = simplegui.create_timer(timer__interval, timer__handler)
 frame.set_draw_handler(draw)
 
-# stop watch buttons
+# Stopwatch buttons
 btn__start = frame.add_button('Start', timer__start, 150)
 btn__stop = frame.add_button('Stop', timer__stop, 150)
 btn__reset = frame.add_button('Reset', timer__reset, 150)
 
 
-# start frame
+# Start frame
 frame.start()
 
-#start timer
+# Start timer
 #timer.start()
 
 
