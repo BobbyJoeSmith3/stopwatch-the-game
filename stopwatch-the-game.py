@@ -56,13 +56,21 @@ import simplegui
 # define global variables
 timer__interval = 100
 time = 0
+time__formatted
 
 
-
+'''
 # define helper function format that converts time
 # in tenths of seconds into formatted string A:BC.D
+# where A, C and D are digits in the range 0-9
+# and B is in the range 0-5.
+'''
 def format(t):
-    pass
+    #global time__formatted
+    #t = time
+    #D = t / 100
+    #C = t / 1000
+    #return time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
 
 
 
@@ -74,6 +82,7 @@ def timer__start():
 #Stop button - stops the timer
 def timer__stop():
     timer.stop()
+
 #Reset button - stops the timer if running, and resets timer to zero
 def timer__reset():
     global time
@@ -86,7 +95,7 @@ def timer__handler():
 
 # define draw handler
 def draw(canvas):
-    canvas.draw_text(str(timer__interval), [100, 100], 24, "White")
+    canvas.draw_text(str(time__formatted), [100, 100], 24, "White")
 
 
 # create frame
