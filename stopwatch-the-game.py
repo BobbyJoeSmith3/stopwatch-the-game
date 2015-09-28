@@ -114,13 +114,14 @@ def timer__stop():
 
 # Reset button - stops the timer if running, and resets timer to zero
 def timer__reset():
-    global time
+    global current_time
     timer.stop()
-    time = 0
+    current_time = 0
 
 # Define event handler for timer with 0.1 sec interval
 def timer__handler():
-
+    global current_time
+    current_time += 100
 
 # Define draw handler
 def draw(canvas):
@@ -150,7 +151,7 @@ btn__reset = frame.add_button('Reset', timer__reset, 150)
 frame.start()
 
 # Start timer
-#timer.start()
+timer.start()
 
 
 
