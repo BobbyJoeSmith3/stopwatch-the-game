@@ -150,8 +150,7 @@ btn__reset = frame.add_button('Reset', timer__reset, 150)
 # Start frame
 frame.start()
 
-# Start timer
-timer.start()
+
 
 
 
