@@ -14,6 +14,8 @@ import simplegui
 # Define global variables
 timer__interval = 100
 current_time = 0
+number_of_stops = 0
+succesful_stops = 0
 
 # Minutes
 A = 0
@@ -44,6 +46,11 @@ def format(t):
     return str(A) + ":" + str(B) + str(C) + "." + str(D)
 
 
+# define helper funciton format that converts number of attempts
+# and number of successful attempts into a scoreboard x/y
+def scoreboard(x, y):
+    return str(x) + "/" + str(y)
+
 
 
 ###########################################\
@@ -73,6 +80,7 @@ def timer__handler():
 # Define draw handler
 def draw(canvas):
     canvas.draw_text(format(current_time), [200, 200], 42, "White")
+    canvas.draw_text(scoreboard(succesful_stops, number_of_stops), [400, 40],  32, "Green")
 
 
 
