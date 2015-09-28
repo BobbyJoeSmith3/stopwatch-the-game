@@ -72,7 +72,7 @@ def timer__handler():
 
 # Define draw handler
 def draw(canvas):
-    canvas.draw_text(format(current_time), [100, 100], 24, "White")
+    canvas.draw_text(format(current_time), [200, 200], 42, "White")
 
 
 
