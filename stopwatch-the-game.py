@@ -72,7 +72,6 @@ C = 0
 # Tenths of a second
 D = 0
 
-time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
 
 
 
@@ -87,11 +86,16 @@ time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
 # and B is in the range 0-5.
 '''
 def format(t):
-    #global time__formatted, A, B, C, D
-    #t = current_time
-    #D = t / 100
-    #C = t / 1000
-    #return time__formatted = str(A) + ":" + str(B) + str(C) + "." + str(D)
+    global A, B, C, D
+    # Caluculate Minutes
+    A = t // 600
+    # Calculate Tens of Seconds
+    B = ((t // 10) % 60) // 10
+    # Calculate Seconds
+    C = ((t // 10) % 60) % 10
+    # Calculate Tenths of Seconds
+    D = (t % 60) % 10
+    return str(A) + ":" + str(B) + str(C) + "." + str(D)
 
 
 
