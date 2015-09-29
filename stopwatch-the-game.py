@@ -60,17 +60,41 @@ def scoreboard(x, y):
 # Define event handlers for buttons; "Start", "Stop", "Reset"
 # Start button - starts the timer
 def timer__start():
+    global game_has_started
     timer.start()
+    game_has_started = True
+
 
 # Stop button - stops the timer
 def timer__stop():
+    global number_of_stops, succesful_stops
+
+    # stop the timer
     timer.stop()
+
+    # increment stop counter for scoreboard
+    if game_has_started:
+        number_of_stops += 1
+
+    # check if player stopped on a whole second and increment
+    # succesful_stops for scoreboard if they have
+    if game_has_started and (D == 0):
+        succesful_stops += 1
+
 
 # Reset button - stops the timer if running, and resets timer to zero
 def timer__reset():
-    global current_time
+    global current_time, number_of_stops, succesful_stops, game_has_started
+
+    # stop the timer
     timer.stop()
+
+    # zero out displays
     current_time = 0
+    number_of_stops = 0
+    succesful_stops = 0
+    game_has_started = False
+
 
 # Define event handler for timer with 0.1 sec interval
 def timer__handler():
