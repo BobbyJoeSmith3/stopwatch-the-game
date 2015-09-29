@@ -16,6 +16,9 @@ timer__interval = 100
 current_time = 0
 number_of_stops = 0
 succesful_stops = 0
+game_has_started = False
+timer_running = False
+
 
 # Minutes
 A = 0
@@ -60,21 +63,25 @@ def scoreboard(x, y):
 # Define event handlers for buttons; "Start", "Stop", "Reset"
 # Start button - starts the timer
 def timer__start():
-    global game_has_started
+    global game_has_started, timer_running
     timer.start()
     game_has_started = True
+    timer_running = True
 
 
 # Stop button - stops the timer
 def timer__stop():
-    global number_of_stops, succesful_stops
+    global number_of_stops, succesful_stops, timer_running
 
     # stop the timer
     timer.stop()
 
     # increment stop counter for scoreboard
-    if game_has_started:
+    if game_has_started and (timer_running == False):
+        number_of_stops += 0
+    elif game_has_started:
         number_of_stops += 1
+        timer_running = False
 
     # check if player stopped on a whole second and increment
     # succesful_stops for scoreboard if they have
@@ -101,11 +108,12 @@ def timer__handler():
     global current_time
     current_time += 1
 
+
 # Define draw handler
 def draw(canvas):
     canvas.draw_text(format(current_time), [200, 200], 42, "White")
-    canvas.draw_text(scoreboard(succesful_stops, number_of_stops), [400, 40],  32, "Green")
-
+    canvas.draw_text(scoreboard(succesful_stops, number_of_stops), \
+                     [400, 40], 32, "Green")
 
 
 ###########################################\
